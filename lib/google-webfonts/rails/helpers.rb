@@ -4,7 +4,9 @@ module GoogleWebfonts
       extend ActiveSupport::Concern
 
       included do
-        helper_method :google_webfonts_init
+        if respond_to?(:helper_method)
+          helper_method :google_webfonts_init
+        end
       end
 
       # Initialize WebFont Loader javascript. Put it in the head elements.
